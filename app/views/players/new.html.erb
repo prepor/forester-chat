@@ -1,0 +1,31 @@
+<div class="span-24" style="height: 100px">
+
+</div>
+
+<div class="span-24">
+	<% form_for @staff do |f| %>
+		<h2><a href="#" onClick="Element.toggle('stuff_form')">Штабной</a></h2>
+		<p id="stuff_form" style="display:none"><span class="large quiet">Имя:</span> <br/>
+			<%= f.check_box :staff, :style => 'display:none' %>
+			<%= f.text_field :name, :class => 'title' %><br/>
+		<button type="submit" class="button positive" style="margin-left: 0px; margin-right: auto;">
+		  <img src="/images/icons/tick.png" alt=""/> Войти
+		</button>
+		</p><br/><br/>
+	<% end %>
+	
+	<% form_for @player do |f| %>
+		<h2><a href="#" onClick="Element.toggle('player_form')">Полевой</a></h2>
+		<p id="player_form" style="display:none">
+			<span class="large quiet">Имя:</span> <br/>
+			<%= f.text_field :name, :class => 'title' %><br/>
+			<span class="large quiet">Экипаж:</span> <br/>
+			<%= f.select :crew_id, Crew.find(:all, :conditions => {:status => 1}).collect {|p| [ p.title, p.id ] }, { :include_blank => true }, :class => 'title'%><br/>
+			<span class="large quiet">Если в списке нужного экипажа, напишите его название тут:</span> <br/>
+			<%= text_field_tag 'crew[title]', '', :class => 'title' %><br/>
+		<button type="submit" class="button positive" style="margin-left: 0px; margin-right: auto;">
+		  <img src="/images/icons/tick.png" alt=""/> Войти
+		</button>
+		</p>
+	<% end %>
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  text: MyText
+  player_id: 1
+  crew_id: 1
+  type: MyString
+
+two:
+  text: MyText
+  player_id: 1
+  crew_id: 1
+  type: MyString

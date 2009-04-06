@@ -1,0 +1,74 @@
+<%= javascript_include_tag :juggernaut, 'prototip' %>
+
+<%= juggernaut :client_id => @current_player.id, :channels => (staff? ? ['staff'] : ["crew-#{@current_player.crew.id}"]) %>
+<div class="span-18">
+<% form_remote_for @message do |f| %>
+	<%= f.text_area :text, :size => '50x3' %>
+<br/>
+	<%= f.submit 'Отправить' %>
+	<%= f.check_box :alert %> Внимание!
+<% end %>
+</div>
+<div class="span-6 last">
+	<%= link_to 'Выйти', player_path(@current_player), :method => :delete %>
+</div>
+
+<div class="span-16">
+	<hr/>
+	<div id='messages'>
+	<% @messages.each do |message| %>
+	<%= show_message(message) %>
+	<% end %>
+	</div>
+	<br/>
+</div>
+
+<div class="span-8 last">
+	<div <% unless staff? %>style="display:none"<% end %>>
+	
+	<h3>Отправить экипаж</h3>
+		<% form_remote_tag :url => suggest_versions_path, :method => :put do %>
+		<select id="crews-selector" name="crew_id">
+			<% Crew.find(:all, :conditions => {:status => 1}).each do |o| %>
+			<option id="crews-selector-<%=o.id %>" value="<%= o.id %>"><%= o.title %></option>
+			<% end %>
+		</select> на 
+		<select id="versions-selector" name="version_id">
+			<% Version.find(:all, :conditions => {:status => 'active'}).each do |o| %>
+			<option id="versions-selector-<%=o.id %>" value="<%= o.id %>"><%= o.title %></option>
+			<% end %>
+		</select>
+			 <%= submit_tag 'Отправить' %><br/><br/>
+		<% end %>
+	</div>
+	<% unless staff? %>
+	<h3>Обновить локацию</h3>
+	<% form_remote_tag :url => update_location_crew_path(@current_player.crew), :method => :put do %>
+		<%= text_field_tag 'location' %> <%= submit_tag 'Обновить' %><br/>
+	<% end %>
+	<% end %>
+		<hr/>
+	<h3>Экипажи</h3>
+	<div id='crews'>
+	<% @crews.each do |crew| %>
+		<%= show_crew(crew) %>
+	<% end %>
+	</div>
+		<hr/>
+	<h3>Версии</h3>
+	<div id='versions'>
+	<% @versions.each do |version| %>
+		<%= show_version(version) %>
+	<% end %>
+	</div>
+	<% form_remote_for Version.new do |f| %>
+		<a href="#" onClick="Element.toggle('player_form')">Добавить версию</a>
+		<p id="player_form" style="display:none">
+			<span class="quiet">Название:</span> <br/>
+			<%= f.text_field :title %><br/>
+			<span class="quiet">Описание:</span> <br/>
+			<%= f.text_area :desc, :size => '30x3' %>
+			<%= f.submit 'Добавить' %>
+		</p>
+	<% end %>
+</div>
