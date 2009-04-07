@@ -1,0 +1,7 @@
+config/password.txt
+
+log/**
+tmp/**/*
+cache/**/*
+
+.DS_Store

@@ -50,4 +50,4 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
-ChatPass = 'subaru'
+ChatPass = File.new(File.join(RAILS_ROOT, 'config', 'password.txt')).read.strip

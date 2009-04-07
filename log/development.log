@@ -11571,3 +11571,65 @@ Processing ChatController#enter (for 127.0.0.1 at 2009-04-04 22:38:47) [GET]
 Rendering template within layouts/application
 Rendering chat/enter
 Completed in 5ms (View: 2, DB: 1) | 200 OK [http://localhost/chat/enter]
+
+
+Processing ChatController#index (for 127.0.0.1 at 2009-04-07 17:43:55) [GET]
+Redirected to http://localhost:3000/chat/enter
+Filter chain halted as [:with_pass] rendered_or_redirected.
+Completed in 97ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing ChatController#enter (for 127.0.0.1 at 2009-04-07 17:43:56) [GET]
+Rendering template within layouts/application
+Rendering chat/enter
+Completed in 65ms (View: 62, DB: 1) | 200 OK [http://localhost/chat/enter]
+
+
+Processing ChatController#pass (for 127.0.0.1 at 2009-04-07 17:43:59) [POST]
+  Parameters: {"method"=>:post, "password"=>"asd"}
+Redirected to http://localhost:3000/chat/enter
+Completed in 3ms (DB: 1) | 302 Found [http://localhost/chat/pass]
+
+
+Processing ChatController#enter (for 127.0.0.1 at 2009-04-07 17:43:59) [GET]
+Rendering template within layouts/application
+Rendering chat/enter
+Completed in 4ms (View: 1, DB: 1) | 200 OK [http://localhost/chat/enter]
+
+
+Processing ChatController#pass (for 127.0.0.1 at 2009-04-07 17:44:06) [POST]
+  Parameters: {"method"=>:post, "password"=>"subaru"}
+Redirected to http://localhost:3000/
+Completed in 3ms (DB: 1) | 302 Found [http://localhost/chat/pass]
+
+
+Processing ChatController#index (for 127.0.0.1 at 2009-04-07 17:44:06) [GET]
+Redirected to http://localhost:3000/players/new
+Filter chain halted as [:with_player] rendered_or_redirected.
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-04-07 17:44:06) [GET]
+Rendering template within layouts/application
+Rendering players/new
+  [4;36;1mCrew Load (0.5ms)[0m   [0;1mSELECT * FROM "crews" WHERE ("crews"."status" = 1) [0m
+Completed in 86ms (View: 32, DB: 1) | 200 OK [http://localhost/players/new]
+
+
+Processing ChatController#pass (for 127.0.0.1 at 2009-04-07 17:44:06) [POST]
+  Parameters: {"method"=>:post, "password"=>"subaru"}
+Redirected to http://localhost:3000/
+Completed in 3ms (DB: 1) | 302 Found [http://localhost/chat/pass]
+
+
+Processing ChatController#index (for 127.0.0.1 at 2009-04-07 17:44:06) [GET]
+Redirected to http://localhost:3000/players/new
+Filter chain halted as [:with_player] rendered_or_redirected.
+Completed in 2ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-04-07 17:44:06) [GET]
+Rendering template within layouts/application
+Rendering players/new
+  [4;35;1mCrew Load (0.3ms)[0m   [0mSELECT * FROM "crews" WHERE ("crews"."status" = 1) [0m
+Completed in 18ms (View: 9, DB: 1) | 200 OK [http://localhost/players/new]
