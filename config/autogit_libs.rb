@@ -1,4 +1,6 @@
 require File.join RAILS_ROOT, 'lib/autogit.rb'
+AutoGit.base_path = "/var/autogit"
+
 AutogitSources = %w{
     git://github.com/
   }
