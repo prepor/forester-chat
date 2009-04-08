@@ -1,0 +1,6 @@
+:subscription_url:  http://chat.forester2.ru/connections/create
+:allowed_ips: 
+             - 127.0.0.1
+:logout_connection_url: http://chat.forester2.ru/connections/destroy
+:store_messages: true
+:port: 3010

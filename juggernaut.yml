@@ -30,9 +30,9 @@
      # 
      # This is the recommended method for broadcast authentication.
      #
-     :allowed_ips: 
-                  - 127.0.0.1
-                  # - 192.168.0.1
+     # :allowed_ips: 
+     #              - 127.0.0.1
+     #              # - 192.168.0.1
 
      # 2) Via HTTP request
      # 
@@ -81,7 +81,7 @@
      # store_messages defaults to false. If this option is true, messages send to connections will be stored. 
      # This is useful since a client can then receive broadcasted message that it has missed (perhaps it was disconnected).
      #
-     :store_messages: true
+     # :store_messages: true
 
      # === Server ===
 
@@ -89,7 +89,7 @@
      # :host: 0.0.0.0
 
      # Port is mandatory
-     :port: 5001
+     :port: 3010
      
      # Defaults to value of :port. If you are doing port forwarding you'll need to configure this to the same 
      # value as :public_port in the juggernaut_hosts.yml file

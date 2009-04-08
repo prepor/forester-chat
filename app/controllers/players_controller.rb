@@ -7,7 +7,7 @@ class PlayersController < ApplicationController
     @staff.staff = true
   end
   def create
-    if params[:crew][:title] != ''
+    if params[:crew] && params[:crew][:title] != ''
       @crew = Crew.create(params[:crew])
       params[:player][:crew_id] = @crew.id
     end
