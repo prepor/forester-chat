@@ -39,7 +39,10 @@ class VersionsController < ApplicationController
   def suggest
     @version = Version.find(params[:version_id])
     render :juggernaut => {:type => :send_to_channels, :channels => ["crew-#{params[:crew_id]}"]} do |page|      
-      page.insert_html :top, 'messages', show_message(Message.new(:vis => 'alert', :text => "Вам предложено отправляться на версию \"#{@version.title}\" #{link_to_remote('Согласиться', :url => agree_version_path(@version), :method => :put)}"))
+        page.insert_html :top, 'messages', show_message(Message.new(:vis => 'alert', :text => "Вам предложено отправляться на версию \"#{@version.title}\" #{link_to_remote('Согласиться', :url => agree_version_path(@version), :method => :put)}"))
+    end
+    render :juggernaut => {:type => :send_to_channels, :channels => ["staff"]} do |page|      
+        page.insert_html :top, 'messages', show_message(Message.new(:vis => 'alert', :text => "Экипажу предложено отправиться на версию"))
     end
     head 200
   end

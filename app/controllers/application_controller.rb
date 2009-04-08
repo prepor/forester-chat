@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
   def add_crew(crew)
     render :juggernaut do |page|
       page.insert_html :top, "crews", show_crew(crew)
-      page.insert_html :top, "crews","crews-selector", "<option id=\"crews-selector-#{crew.id}\" value=\"#{crew.id}\">#{crew.title}</option>"
+      page.insert_html :top, "crews-selector", "<option id=\"crews-selector-#{crew.id}\" value=\"#{crew.id}\">#{crew.title}</option>"
     end
   end
   
